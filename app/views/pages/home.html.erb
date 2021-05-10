@@ -1,0 +1,25 @@
+<h1>Home Page!</h1>
+
+<h3><%= Date.today %></h3>
+
+<% name = "james" %>
+<% surname = "brown" %>
+
+<p>Welcome <%= name.upcase %> <%= surname.upcase %></p>
+
+<% members = [ 'thanh', 'dimitri', 'germain', 'damien', 'julien' ] %>
+
+<h2>Meet our team</h2>
+<ol>
+  <% members.each do |member| %>
+    <li><%= member.capitalize %></li>
+  <% end %>
+</ol>
+
+<%# defined in the controller %>
+<p>The country is <%= @country %></p>
+
+<%# <a href="/welcome">Go to the welcome page</a> %>
+
+<%= link_to "Go to the welcome page", welcome_path, target: :blank %>
+<%= link_to "Go to the about page", about_path, target: :blank %>

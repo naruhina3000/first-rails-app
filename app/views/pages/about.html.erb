@@ -1,0 +1,30 @@
+<h1>About us</h1>
+<p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. 
+Delectus, dignissimos sapiente earum culpa possimus quod eos, dicta et ea optio eius similique nam alias, 
+rem sed unde? Dolorum, aliquam blanditiis.</p>
+
+<h1>Search for members</h1>
+
+<%# goes to the controller "about" %>
+<form action="/about" method="GET">
+    <label for="name">Insert first letter</label>
+    <input type="text" id="name" name="query" value="<%= @query %>">
+    <input type="submit" value="search">
+</form>
+
+<% if @query %>
+    <p>Here are the results based on your query: <strong><%= @query %></strong> </p>
+
+    <% if @results.empty? %>
+        <p>Sorry, can't find any :-(</p>
+    <% else %>
+        <ol>
+            <% @results.each do |member| %>
+            <li><%= member %></li>
+            <% end %>
+        </ol>
+    <% end %>
+
+<% end %>
+
+<%= link_to "Go Home", root_path %>
